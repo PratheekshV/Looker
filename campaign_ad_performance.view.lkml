@@ -46,6 +46,12 @@ view: campaign_ad_performance {
     sql: ${TABLE}.cost ;;
   }
 
+  measure: cost_scp {
+    type: number
+    sql: ${TABLE}.cost ;;
+  }
+
+
   measure: ctr {
     type: sum
     sql: ${TABLE}.CTR ;;
@@ -93,6 +99,12 @@ view: campaign_ad_performance {
 
   measure: revenue {
     type: sum
+    value_format_name: decimal_2
+    sql: ${TABLE}.revenue ;;
+  }
+
+  measure: revenue_scp {
+    type: number
     value_format_name: decimal_2
     sql: ${TABLE}.revenue ;;
   }
