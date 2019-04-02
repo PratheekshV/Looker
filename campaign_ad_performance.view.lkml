@@ -93,6 +93,7 @@ view: campaign_ad_performance {
 
   measure: revenue {
     type: sum
+    value_format_name: decimal_2
     sql: ${TABLE}.revenue ;;
   }
 
