@@ -6,13 +6,13 @@ view: campaign_ad_performance {
     sql: ${TABLE}.age ;;
   }
 
-  dimension: avgcpc {
-    type: number
+  measure: avgcpc {
+    type: sum
     sql: ${TABLE}.AVGCPC ;;
   }
 
-  dimension: avgcpm {
-    type: number
+  measure: avgcpm {
+    type: sum
     sql: ${TABLE}.AVGCPM ;;
   }
 
@@ -31,23 +31,23 @@ view: campaign_ad_performance {
     sql: ${TABLE}.ChannelCampaignID ;;
   }
 
-  dimension: click {
-    type: number
+  measure: click {
+    type: sum
     sql: ${TABLE}.click ;;
   }
 
-  dimension: conversion {
-    type: number
+  measure: conversion {
+    type: sum
     sql: ${TABLE}.conversion ;;
   }
 
-  dimension: cost {
-    type: number
+  measure: cost {
+    type: sum
     sql: ${TABLE}.cost ;;
   }
 
-  dimension: ctr {
-    type: number
+  measure: ctr {
+    type: sum
     sql: ${TABLE}.CTR ;;
   }
 
@@ -76,13 +76,13 @@ view: campaign_ad_performance {
     sql: ${TABLE}.gender ;;
   }
 
-  dimension: impression {
-    type: number
+  measure: impression {
+    type: sum
     sql: ${TABLE}.impression ;;
   }
 
-  dimension: income {
-    type: string
+  measure: income {
+    type: sum
     sql: ${TABLE}.income ;;
   }
 
@@ -91,8 +91,8 @@ view: campaign_ad_performance {
     sql: ${TABLE}.Product ;;
   }
 
-  dimension: revenue {
-    type: number
+  measure: revenue {
+    type: sum
     sql: ${TABLE}.revenue ;;
   }
 
@@ -105,4 +105,9 @@ view: campaign_ad_performance {
     type: count
     drill_fields: [campaign_name]
   }
+  measure: Total_campaign  {
+    type: count_distinct
+    sql: ${channel_campaign_id} ;;
+  }
+
 }
