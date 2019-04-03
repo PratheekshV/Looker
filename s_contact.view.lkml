@@ -217,6 +217,12 @@ view: s_contact {
     sql: ${TABLE}.username ;;
   }
 
+  dimension: customername {
+    type: string
+    sql: ${TABLE}.first_name + " "+ ${TABLE}.last_name ;;
+
+  }
+
   measure: count {
     type: count
     drill_fields: [detail*]
