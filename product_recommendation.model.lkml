@@ -32,9 +32,9 @@ join: s_product {
     relationship: one_to_one
 
   }
-  join: recommendationals {
+  join: recommendations {
     type: left_outer
-    sql_on: ${recommendationals.customer_id} = ${s_contact.customer_id} ;;
+    sql_on: ${recommendations.customer_id} = ${s_contact.customer_id} ;;
     relationship: many_to_one
 
   }
@@ -46,4 +46,3 @@ join: s_product {
   }
 
 }
-
