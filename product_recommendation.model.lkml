@@ -44,5 +44,11 @@ join: s_product {
     relationship: many_to_one
 
   }
+  join: erp_orders {
+    type:  left_outer
+    sql_on: ${erp_orders.customer_number} =  ${s_contact.customer_id};;
+    relationship: many_to_many
+
+  }
 
 }
