@@ -10,114 +10,40 @@ datagroup: product_recommendation_default_datagroup {
 
 persist_with: product_recommendation_default_datagroup
 
-explore: crm_ga_bridge {
-  join: customer {
-    type: left_outer
-    sql_on: ${crm_ga_bridge.customer_id} = ${customer.customer_id} ;;
-    relationship: many_to_one
-  }
+explore: ga_all {
+
+join: crm_ga_bridge
+{
+  type: inner
+  sql_on: ${ga_all.visitor_id} = ${crm_ga_bridge.visitor_id};;
+  relationship: one_to_one
+
 }
 
-explore: customer {}
+join: s_product {
+  type: inner
+  sql_on: ${ga_all.product_id} = ${s_product.uniq_id} ;;
+  relationship: many_to_one
 
-explore: customer_device {
-  join: customer {
-    type: left_outer
-    sql_on: ${customer_device.customer_id} = ${customer.customer_id} ;;
-    relationship: many_to_one
   }
+  join: s_contact {
+    type: inner
+    sql_on:${s_contact.customer_id} = ${crm_ga_bridge.customer_id} ;;
+    relationship: one_to_one
+
+  }
+  join: recommendationals {
+    type: left_outer
+    sql_on: ${recommendationals.customer_id} = ${s_contact.customer_id} ;;
+    relationship: many_to_one
+
+  }
+  join: recommendations_real_time {
+    type: left_outer
+    sql_on: ${recommendations_real_time.customer_id} = ${s_contact.customer_id} ;;
+    relationship: many_to_one
+
+  }
+
 }
 
-explore: customer_purchase_data {
-  join: customer {
-    type: left_outer
-    sql_on: ${customer_purchase_data.customer_id} = ${customer.customer_id} ;;
-    relationship: many_to_one
-  }
-}
-
-explore: erp_orders {}
-
-explore: ga_all {}
-
-explore: ga_all_2 {}
-
-explore: product {}
-
-explore: promotion {
-  join: stores {
-    type: left_outer
-    sql_on: ${promotion.store_id} = ${stores.store_id} ;;
-    relationship: many_to_one
-  }
-}
-
-explore: purchase {
-  join: customer {
-    type: left_outer
-    sql_on: ${purchase.customer_id} = ${customer.customer_id} ;;
-    relationship: many_to_one
-  }
-}
-
-explore: s_addr_per {
-  join: customer {
-    type: left_outer
-    sql_on: ${s_addr_per.customer_id} = ${customer.customer_id} ;;
-    relationship: many_to_one
-  }
-}
-
-explore: s_behaviour {
-  join: customer {
-    type: left_outer
-    sql_on: ${s_behaviour.customer_id} = ${customer.customer_id} ;;
-    relationship: many_to_one
-  }
-}
-
-explore: s_contact {
-  join: customer {
-    type: left_outer
-    sql_on: ${s_contact.customer_id} = ${customer.customer_id} ;;
-    relationship: many_to_one
-  }
-}
-
-explore: s_party_membership {
-  join: customer {
-    type: left_outer
-    sql_on: ${s_party_membership.customer_id} = ${customer.customer_id} ;;
-    relationship: many_to_one
-  }
-}
-
-explore: s_preferences {
-  join: customer {
-    type: left_outer
-    sql_on: ${s_preferences.customer_id} = ${customer.customer_id} ;;
-    relationship: many_to_one
-  }
-}
-
-explore: s_prod_matrix {}
-
-explore: s_product {}
-
-explore: social {}
-
-explore: store_customer {
-  join: stores {
-    type: left_outer
-    sql_on: ${store_customer.store_id} = ${stores.store_id} ;;
-    relationship: many_to_one
-  }
-
-  join: customer {
-    type: left_outer
-    sql_on: ${store_customer.customer_id} = ${customer.customer_id} ;;
-    relationship: many_to_one
-  }
-}
-
-explore: stores {}
