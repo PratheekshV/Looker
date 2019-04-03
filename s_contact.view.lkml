@@ -219,7 +219,7 @@ view: s_contact {
 
   dimension: customername {
     type: string
-    sql: ${TABLE}.first_name + " "+ ${TABLE}.last_name ;;
+    sql:  concat(${TABLE}.first_name," ",${TABLE}.last_name) ;;
 
   }
 
