@@ -12,14 +12,14 @@ explore: customer_profile {
 join: search_history {
   type:  left_outer
   sql_on: ${search_history.customer_id} = ${customer_profile.customer_id};;
-  relationship: many_to_one
+  relationship: one_to_one
 
 }
 
 join: product_recommendation {
   type: left_outer
   sql_on: ${product_recommendation.customer_id} = ${customer_profile.customer_id} ;;
-  relationship:  many_to_one
+  relationship:  one_to_one
 
 }
 
