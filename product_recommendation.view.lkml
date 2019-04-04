@@ -7,7 +7,7 @@ view: product_recommendation {
   }
 
   measure: confidence_ {
-    type: number
+    type: sum
     sql: ${TABLE}.Confidence_ ;;
 
   }
