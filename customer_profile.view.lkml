@@ -61,6 +61,12 @@ view: customer_profile {
     sql: ${TABLE}.string_field_12 ;;
   }
 
+  dimension: fullname {
+    type: string
+    sql: ${first_name}|| ' '|| ${last_name} ;;
+
+  }
+
   dimension: time_zone {
     type: string
     sql: ${TABLE}.time_zone ;;
