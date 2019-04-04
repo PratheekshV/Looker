@@ -9,12 +9,20 @@ datagroup: productrecommendationcci_default_datagroup {
 }
 explore: customer_profile {
 
-}
-explore: search_history {
+join: search_history {
+  type:  left_outer
+  sql_on: ${customer_profile.customer_id} = ${customer_profile.customer_id};;
+  relationship: many_to_one
 
 }
 
-explore: product_recommendation {
+join: product_recommendation {
+  type: left_outer
+  sql_on: ${product_recommendation.customer_id} = ${customer_profile.customer_id} ;;
+  relationship:  many_to_one
 
 }
+
+}
+
 persist_with: productrecommendationcci_default_datagroup
