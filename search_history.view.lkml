@@ -16,8 +16,8 @@ view: search_history {
     sql: ${TABLE}.string_field_3 ;;
   }
 
-  dimension: times {
-    type: number
+  measure: times {
+    type: sum
     sql: ${TABLE}.Times ;;
   }
 

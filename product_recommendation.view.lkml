@@ -6,9 +6,10 @@ view: product_recommendation {
     sql: ${TABLE}.Channel ;;
   }
 
-  dimension: confidence_ {
+  measure: confidence_ {
     type: number
     sql: ${TABLE}.Confidence_ ;;
+
   }
 
   dimension: conversion_time__in_mins_ {
