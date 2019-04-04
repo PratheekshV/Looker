@@ -11,7 +11,7 @@ explore: customer_profile {
 
 join: search_history {
   type:  left_outer
-  sql_on: ${customer_profile.customer_id} = ${customer_profile.customer_id};;
+  sql_on: ${search_history.customer_id} = ${customer_profile.customer_id};;
   relationship: many_to_one
 
 }
