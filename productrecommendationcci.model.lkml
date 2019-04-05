@@ -7,6 +7,10 @@ datagroup: productrecommendationcci_default_datagroup {
   # sql_trigger: SELECT MAX(id) FROM etl_log;;
   max_cache_age: "1 hour"
 }
+
+explore: recommendations_real_time{
+  }
+
 explore: customer_profile {
 
 join: search_history {

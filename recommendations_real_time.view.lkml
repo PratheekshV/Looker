@@ -12,13 +12,6 @@ view: recommendations_real_time {
     # hidden: yes
     sql: ${TABLE}.customer_id ;;
   }
-
-  measure: count_customer_id {
-    type: count
-    # hidden: yes
-    sql: ${TABLE}.customer_id ;;
-  }
-
   dimension: products {
     type: string
     sql: ${TABLE}.Products ;;
