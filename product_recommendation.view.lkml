@@ -8,6 +8,7 @@ view: product_recommendation {
 
   measure: confidence_ {
     type: sum
+    value_format_name: percent_0
     sql: ${TABLE}.Confidence_ ;;
 
   }
