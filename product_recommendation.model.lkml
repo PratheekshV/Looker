@@ -9,7 +9,7 @@ datagroup: product_recommendation_default_datagroup {
 }
 
 persist_with: product_recommendation_default_datagroup
-
+explore: recommendations_real_time{}
 explore: crm_ga_bridge {
   join: customer {
     type: left_outer
