@@ -63,7 +63,7 @@ view: customer_profile {
 
   dimension: fullname {
     type: string
-    sql: ${first_name}|| ' '|| ${last_name} ;;
+    sql: CONCAT(${first_name},' ',${last_name}) ;;
 
   }
 

@@ -31,7 +31,7 @@ view: recommendations_real_time {
   }
 
   measure: count {
-    type: count
+    type: count_distinct
     drill_fields: []
     # hidden: yes
     sql: ${TABLE}.customer_id ;;
@@ -42,12 +42,12 @@ view: recommendations_real_time {
     # hidden: yes
     sql: ${TABLE}.customer_id ;;
   }
-  dimension: products {
+  dimension: products1 {
     type: string
     sql: ${TABLE}.Products ;;
   }
 
-  dimension_group: reco_timestamp {
+  dimension_group: reco_timestamp1 {
     type: time
     timeframes: [
       raw,
